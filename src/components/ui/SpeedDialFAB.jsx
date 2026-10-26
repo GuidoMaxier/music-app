@@ -15,43 +15,42 @@ import { useState, useEffect } from 'react'
 const THEMES = [
   {
     name: 'dark',
-    label: 'Dark Mode',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="size-4" fill="none" viewBox="0 0 24 24" strokeWidth="1.7" stroke="currentColor">
+    label: 'Dark',
+    letter: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="size-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
       </svg>
     ),
-    btnClass: 'bg-neutral-800 text-white hover:bg-neutral-700',
+    btnClass: 'bg-neutral-900 text-white hover:bg-neutral-800',
+  },
+  {
+    name: 'light',
+    label: 'Light',
+    letter: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="size-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+      </svg>
+    ),
+    btnClass: 'bg-white text-neutral-900 hover:bg-neutral-100',
   },
   {
     name: 'synthwave',
     label: 'Synthwave',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="size-4" fill="none" viewBox="0 0 24 24" strokeWidth="1.7" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-      </svg>
-    ),
-    btnClass: 'bg-fuchsia-950 text-pink-300 hover:bg-fuchsia-900',
+    letter: 'S',
+    btnClass: 'bg-fuchsia-950 text-fuchsia-300 hover:bg-fuchsia-900 font-bold',
   },
   {
     name: 'cyberpunk',
     label: 'Cyberpunk',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="size-4" fill="none" viewBox="0 0 24 24" strokeWidth="1.7" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-      </svg>
-    ),
-    btnClass: 'bg-yellow-400 text-black hover:bg-yellow-300',
+    letter: 'C',
+    btnClass: 'bg-yellow-400 text-neutral-950 hover:bg-yellow-300 font-extrabold',
   },
   {
     name: 'retro',
     label: 'Retro',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="size-4" fill="none" viewBox="0 0 24 24" strokeWidth="1.7" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.757 3.63 8.25 4.51 8.25H6.75z" />
-      </svg>
-    ),
-    btnClass: 'bg-amber-100 text-amber-900 hover:bg-amber-200',
+    labelColor: 'text-amber-900',
+    letter: 'R',
+    btnClass: 'bg-amber-200 text-amber-900 hover:bg-amber-300 font-bold',
   },
 ]
 
@@ -112,14 +111,14 @@ export default function SpeedDialFAB() {
             <button
               type="button"
               onClick={() => handleSelectTheme(theme.name)}
-              className={`btn btn-sm btn-circle shadow-lg transition-all border ${
+              className={`btn btn-sm btn-circle shadow-lg transition-all border text-xs font-mono ${
                 isSelected
                   ? 'border-primary shadow-primary/40 shadow-md scale-105 opacity-100 ring-2 ring-primary/60'
-                  : 'border-white/10 opacity-75 hover:opacity-100 hover:scale-105'
+                  : 'border-white/10 opacity-80 hover:opacity-100 hover:scale-105'
               } ${theme.btnClass}`}
               aria-label={theme.label}
             >
-              {theme.icon}
+              {theme.letter}
             </button>
           </div>
         )
