@@ -6,7 +6,7 @@ import Footer from './components/ui/Footer'
 
 function App() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen flex flex-col justify-between">
         <Navbar />
         <main className="flex-1">

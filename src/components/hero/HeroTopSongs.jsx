@@ -20,7 +20,7 @@ export default function HeroTopSongs() {
       setLoading(true)
       try {
         const res = await fetch(
-          `/itunes/search?term=${encodeURIComponent(genero)}&media=music&entity=song&limit=${limit}`,
+          `https://itunes.apple.com/search?term=${encodeURIComponent(genero)}&media=music&entity=song&limit=${limit}`,
           { signal: controller.signal }
         )
         if (!res.ok) throw new Error('Error al consultar iTunes')
