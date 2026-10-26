@@ -90,7 +90,7 @@ const THEMES = [
   },
 ]
 
-export default function SpeedDialFAB() {
+export default function ThemeSpeedDial() {
   const [currentTheme, setCurrentTheme] = useState(() => {
     return localStorage.getItem('music-theme') || 'dark'
   })

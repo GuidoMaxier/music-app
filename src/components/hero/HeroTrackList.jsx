@@ -6,7 +6,7 @@ export default function HeroTrackList({
   limit = 5,
   activeTrack,
   currentPlayingId,
-  volume = 0.8,
+  volume = 0.5,
   onVolumeChange,
   onSelectTrack,
   onTogglePlay,
