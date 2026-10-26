@@ -34,23 +34,46 @@ const THEMES = [
     btnClass: 'bg-white text-neutral-900 hover:bg-neutral-100',
   },
   {
+    name: 'dracula',
+    label: 'Dracula',
+    letter: 'D',
+    btnClass: 'bg-[#282a36] text-[#bd93f9] hover:bg-[#343746] font-extrabold',
+  },
+  {
     name: 'synthwave',
     label: 'Synthwave',
     letter: 'S',
-    btnClass: 'bg-fuchsia-950 text-fuchsia-300 hover:bg-fuchsia-900 font-bold',
+    btnClass: 'bg-[#2d1b4e] text-[#f43f5e] hover:bg-[#3b2366] font-bold',
   },
   {
     name: 'cyberpunk',
     label: 'Cyberpunk',
     letter: 'C',
-    btnClass: 'bg-yellow-400 text-neutral-950 hover:bg-yellow-300 font-extrabold',
+    btnClass: 'bg-[#ffee00] text-black hover:bg-[#ffe600] font-black',
+  },
+  {
+    name: 'luxury',
+    label: 'Luxury',
+    letter: 'L',
+    btnClass: 'bg-[#09090b] text-[#d4af37] border border-[#d4af37]/40 hover:bg-neutral-900 font-bold',
+  },
+  {
+    name: 'coffee',
+    label: 'Coffee',
+    letter: 'K',
+    btnClass: 'bg-[#20161f] text-[#db924b] hover:bg-[#2b1e2a] font-bold',
+  },
+  {
+    name: 'aqua',
+    label: 'Aqua',
+    letter: 'A',
+    btnClass: 'bg-[#005f73] text-[#94d2bd] hover:bg-[#0a9396] font-bold',
   },
   {
     name: 'retro',
     label: 'Retro',
-    labelColor: 'text-amber-900',
     letter: 'R',
-    btnClass: 'bg-amber-200 text-amber-900 hover:bg-amber-300 font-bold',
+    btnClass: 'bg-[#ece3ca] text-[#7d5e3f] hover:bg-[#dfd5b8] font-bold',
   },
 ]
 
