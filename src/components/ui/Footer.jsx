@@ -1,5 +1,9 @@
 export default function Footer() {
     return (
-        <footer> Soy el Footer </footer>
+        <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
+            <aside>
+                <p>Copyright ©2026 All right reserved by Hernán Casasola</p>
+            </aside>
+        </footer>
     )
 }
