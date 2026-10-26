@@ -6,7 +6,7 @@ export default function HeroTrackList({
   limit = 5,
   activeTrack,
   currentPlayingId,
-  volume = 0.5,
+  volume = 0.3,
   onVolumeChange,
   onSelectTrack,
   onTogglePlay,
@@ -99,7 +99,7 @@ export default function HeroTrackList({
             <div className="flex items-center gap-1.5 flex-1 max-w-44 px-1 group" title={`Volumen: ${Math.round(volume * 100)}%`}>
               <button
                 type="button"
-                onClick={() => onVolumeChange(volume > 0 ? 0 : 0.8)}
+                onClick={() => onVolumeChange(volume > 0 ? 0 : 0.3)}
                 className="btn btn-ghost btn-circle btn-xs text-white/60 hover:text-primary transition-colors shrink-0 p-0 h-6 w-6 min-h-0"
                 aria-label={volume === 0 ? "Activar sonido" : "Silenciar"}
               >

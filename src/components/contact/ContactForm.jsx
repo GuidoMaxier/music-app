@@ -74,7 +74,7 @@ export default function ContactForm() {
                 name="user_name"
                 required
                 placeholder="Tu nombre completo"
-                className="input input-sm input-ghost w-full rounded-lg focus:input-primary bg-base-300/40"
+                className="input input-sm input-ghost w-full rounded-lg focus:input-primary bg-neutral/30"
               />
             </fieldset>
 
@@ -88,7 +88,7 @@ export default function ContactForm() {
                 name="user_email"
                 required
                 placeholder="correo@ejemplo.com"
-                className="input input-sm input-ghost w-full rounded-lg focus:input-primary bg-base-300/40"
+                className="input input-sm input-ghost w-full rounded-lg focus:input-primary bg-neutral/30"
               />
             </fieldset>
 
@@ -102,7 +102,7 @@ export default function ContactForm() {
                 name="subject"
                 required
                 placeholder="Motivo de tu mensaje"
-                className="input input-sm input-ghost w-full rounded-lg focus:input-primary bg-base-300/40"
+                className="input input-sm input-ghost w-full rounded-lg focus:input-primary bg-neutral/30"
               />
             </fieldset>
 
@@ -116,7 +116,7 @@ export default function ContactForm() {
                 required
                 rows={3}
                 placeholder="Escribe tu consulta o sugerencia..."
-                className="textarea textarea-sm textarea-ghost w-full rounded-lg focus:textarea-primary bg-base-300/40 resize-none"
+                className="textarea textarea-sm textarea-ghost w-full rounded-lg focus:textarea-primary bg-neutral/30 resize-none"
               ></textarea>
             </fieldset>
 
