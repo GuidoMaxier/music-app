@@ -10,7 +10,7 @@ const links = [
 
 export default function Navbar() {
   return (
-    <div className="max-lg:collapse lg:max-w-1/2 bg-base-200/60 backdrop-blur-md shadow-lg lg:rounded-full rounded-none z-50 fixed top-0 left-0 right-0 lg:top-6  ">
+    <div className="max-lg:collapse fixed top-0 left-0 right-0 z-50 bg-base-200/60 backdrop-blur-md shadow-lg rounded-none lg:w-full lg:max-w-3xl lg:top-6 lg:left-1/2 lg:-translate-x-1/2 lg:rounded-full lg:px-6">
       <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
       <label htmlFor="navbar-1-toggle" className="fixed inset-0 hidden max-lg:peer-checked:block"></label>
       <div className="collapse-title navbar">
