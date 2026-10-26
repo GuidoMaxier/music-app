@@ -13,10 +13,46 @@
 import { useState, useEffect } from 'react'
 
 const THEMES = [
-  { name: 'dark', label: 'Dark', icon: '🌙', color: 'bg-neutral-800 text-white' },
-  { name: 'synthwave', label: 'Synthwave', icon: '🌆', color: 'bg-fuchsia-900 text-pink-300' },
-  { name: 'cyberpunk', label: 'Cyberpunk', icon: '⚡', color: 'bg-yellow-400 text-black' },
-  { name: 'retro', label: 'Retro', icon: '📻', color: 'bg-amber-200 text-amber-900' },
+  {
+    name: 'dark',
+    label: 'Dark Mode',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="size-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+      </svg>
+    ),
+    btnClass: 'btn-neutral text-white',
+  },
+  {
+    name: 'synthwave',
+    label: 'Synthwave',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="size-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+      </svg>
+    ),
+    btnClass: 'btn-secondary text-secondary-content',
+  },
+  {
+    name: 'cyberpunk',
+    label: 'Cyberpunk',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="size-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      </svg>
+    ),
+    btnClass: 'btn-warning text-black',
+  },
+  {
+    name: 'retro',
+    label: 'Retro',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="size-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.757 3.63 8.25 4.51 8.25H6.75z" />
+      </svg>
+    ),
+    btnClass: 'btn-accent text-accent-content',
+  },
 ]
 
 export default function SpeedDialFAB() {
@@ -31,37 +67,39 @@ export default function SpeedDialFAB() {
 
   const handleSelectTheme = (themeName) => {
     setCurrentTheme(themeName)
-    // Cierra el focus para que los botones vuelvan a guardarse
     if (document.activeElement) {
       document.activeElement.blur()
     }
   }
 
   return (
-    <div className="fab fab-flower fixed bottom-6 right-6 z-50">
-      {/* Botón principal accesible con tabIndex para compatibilidad total */}
+    <div className="fab fixed bottom-6 right-6 z-50">
+      {/* Botón trigger principal accesible */}
       <div
         tabIndex={0}
         role="button"
-        className="btn btn-circle btn-lg btn-primary shadow-2xl hover:scale-105 transition-transform"
-        aria-label="Abrir selector de temas"
-        title="Cambiar tema visual"
+        className="btn btn-lg btn-circle btn-primary shadow-2xl hover:scale-105 transition-transform"
+        aria-label="Abrir temas"
+        title="Temas visuales"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4 5 5 0 015-5 4 4 0 014 4 4 4 0 01-4 4zm0 0h10a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        <svg
+          aria-label="Palette / Theme"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="2"
+          stroke="currentColor"
+          className="size-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.14 8.163a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
+          />
         </svg>
       </div>
 
-      {/* Botón que reemplaza al principal cuando el FAB se abre */}
-      <button
-        type="button"
-        className="fab-main-action btn btn-circle btn-lg btn-secondary shadow-xl"
-        title="Cerrar selector"
-      >
-        ✕
-      </button>
-
-      {/* Botones temáticos en abanico (flower) */}
+      {/* Botones de acción verticales que se despliegan hacia arriba */}
       {THEMES.map((theme) => {
         const isSelected = currentTheme === theme.name
 
@@ -74,12 +112,12 @@ export default function SpeedDialFAB() {
             <button
               type="button"
               onClick={() => handleSelectTheme(theme.name)}
-              className={`btn btn-circle btn-lg shadow-xl font-bold transition-all text-base ${theme.color} ${
-                isSelected ? 'ring-4 ring-primary scale-110' : 'hover:scale-110 opacity-90 hover:opacity-100'
+              className={`btn btn-lg btn-circle shadow-xl transition-all ${theme.btnClass} ${
+                isSelected ? 'ring-4 ring-offset-2 ring-primary scale-110' : 'hover:scale-105'
               }`}
-              aria-label={`Tema ${theme.label}`}
+              aria-label={theme.label}
             >
-              <span>{theme.icon}</span>
+              {theme.icon}
             </button>
           </div>
         )
@@ -87,3 +125,4 @@ export default function SpeedDialFAB() {
     </div>
   )
 }
+
