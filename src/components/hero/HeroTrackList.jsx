@@ -88,31 +88,37 @@ export default function HeroTrackList({
           })}
         </div>
 
-          {/* Control de volumen general */}
-          <div className="pt-2 border-t border-white/10 flex items-center justify-between gap-3 text-xs text-white/70">
-            <div className="flex items-center gap-2 flex-1">
+          {/* Pie del card: Muestras de 30s | Control de volumen minimalista | Botón iTunes API */}
+          <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-3 text-xs text-white/60">
+            {/* 1. Muestras de 30s */}
+            <span className="shrink-0 text-[11px] font-medium tracking-wide text-white/50">
+              Muestras de 30s
+            </span>
+
+            {/* 2. Control de volumen minimalista DaisyUI Range */}
+            <div className="flex items-center gap-1.5 flex-1 max-w-44 px-1 group" title={`Volumen: ${Math.round(volume * 100)}%`}>
               <button
                 type="button"
                 onClick={() => onVolumeChange(volume > 0 ? 0 : 0.8)}
-                className="btn btn-ghost btn-circle btn-xs text-white/80 hover:text-primary transition-colors shrink-0"
-                title={volume === 0 ? "Activar sonido" : "Silenciar"}
+                className="btn btn-ghost btn-circle btn-xs text-white/60 hover:text-primary transition-colors shrink-0 p-0 h-6 w-6 min-h-0"
                 aria-label={volume === 0 ? "Activar sonido" : "Silenciar"}
               >
                 {volume === 0 ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-error/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
                   </svg>
                 ) : volume < 0.5 ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                   </svg>
                 ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                   </svg>
                 )}
               </button>
+
               <input
                 type="range"
                 min="0"
@@ -120,14 +126,12 @@ export default function HeroTrackList({
                 step="0.01"
                 value={volume}
                 onChange={(e) => onVolumeChange(parseFloat(e.target.value))}
-                className="range range-xs range-primary flex-1 cursor-pointer"
-                aria-label="Control de volumen general"
+                className="range range-xs range-primary flex-1 opacity-75 hover:opacity-100 transition-opacity cursor-pointer"
+                aria-label="Control de volumen"
               />
-              <span className="text-[10px] font-mono text-white/50 w-7 text-right">
-                {Math.round(volume * 100)}%
-              </span>
             </div>
 
+            {/* 3. Botón iTunes API */}
             <a
               href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html"
               target="_blank"
