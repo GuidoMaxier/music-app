@@ -1,6 +1,7 @@
 
 import { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser'
+import HeroBackground from '../components/hero/HeroBackground'
 
 export default function Contact() {
   const formRef = useRef(null)
@@ -51,8 +52,11 @@ export default function Contact() {
   }
 
   return (
-    <div className="hero min-h-[calc(100vh-4rem)] pt-20 lg:mt-10 pb-12 px-4 md:px-8 ">
-      <div className="hero-content flex-col lg:flex-row gap-8 lg:gap-12 max-w-6xl w-full items-stretch">
+    <div className="hero relative min-h-[calc(100vh-4rem)] pt-10 lg:mt-10 pb-12 px-4 md:px-8 overflow-hidden">
+      {/* Reutilización del fondo ambiental del Hero */}
+      <HeroBackground />
+
+      <div className="hero-content flex-col lg:flex-row gap-8 lg:gap-12 max-w-6xl w-full items-stretch relative z-10">
         
         {/* Lado A: Tarjeta con Formulario (DaisyUI Card + Card-body + Fieldset) */}
         <div className="card bg-base-200/70 backdrop-blur-md border border-base-300 w-full lg:max-w-md shrink-0 shadow-2xl rounded-3xl">
