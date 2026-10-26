@@ -1,6 +1,9 @@
-import Hero from "../components/ui/Hero";
+import HeroTopSongs from "../components/hero/HeroTopSongs";
+
 export default function Home() {
   return (
-    <Hero />
+    <div className="relative">
+      <HeroTopSongs />
+    </div>
   )
 }

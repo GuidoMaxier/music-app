@@ -1,13 +1,24 @@
-import Navbar from "./components/ui/Navbar"
-import Home from "./pages/Home"
-import Footer from "./components/ui/Footer"
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './components/ui/Navbar'
+import Home from './pages/Home'
+import Contact from './pages/Contact'
+import Footer from './components/ui/Footer'
+
 function App() {
   return (
-    <>
-      <Navbar />
-      <Home />
-      <Footer />
-    </>
+    <BrowserRouter basename="/">
+      <div className="min-h-screen flex flex-col justify-between">
+        <Navbar />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<div className="pt-32 text-center text-xl">Página About (En construcción)</div>} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   )
 }
 

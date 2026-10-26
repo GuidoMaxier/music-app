@@ -1,54 +1,50 @@
+import { Link } from "react-router-dom"
 import ThemeController from "./ThemeController"
 
 const title = "Music App"
 const links = [
-  {
-    name: "Home",
-    href: "/",
-  },
-  {
-    name: "Contact",
-    href: "/contact",
-  },
-  {
-    name: "About",
-    href: "/about",
-  },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ]
-
 
 export default function Navbar() {
   return (
-    <div className="max-lg:collapse bg-base-200/80 shadow-sm lg:rounded-full  rounded-none z-10 fixed top-0 left-0 right-0 lg:top-10 lg:left-80 lg:right-80 lg:px-5">
+    <div className="max-lg:collapse bg-base-200/60 backdrop-blur-md shadow-lg lg:rounded-full rounded-none z-50 fixed top-0 left-0 right-0 lg:top-6 lg:left-36 lg:right-36 lg:px-6">
       <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
       <label htmlFor="navbar-1-toggle" className="fixed inset-0 hidden max-lg:peer-checked:block"></label>
       <div className="collapse-title navbar">
-        <div className="navbar-start">
+        <div className="navbar-start gap-2">
           <label htmlFor="navbar-1-toggle" className="btn btn-ghost lg:hidden">
             <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
-          <button className="btn btn-ghost text-start lg:text-2xl font-bold bg-transparent ml-5 hover:text-secondary">{title}</button>
+          <Link to="/" className="btn btn-ghost text-start lg:text-xl font-bold bg-transparent hover:text-primary">
+            {title}
+          </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {/* <li><button>Item 1</button></li> */}
+
+        <div className="navbar-center hidden lg:flex items-center">
+          <ul className="menu menu-horizontal px-1 gap-2 text-sm font-semibold">
             {links.map((link, index) => (
               <li key={index}>
-                <a href={link.href}>{link.name}</a>
+                <Link to={link.href} className="hover:text-primary rounded-full px-4 transition-colors">
+                  {link.name}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
-        <div className="navbar-end lg:mr-5">
+
+        <div className="navbar-end lg:mr-8">
           <ThemeController />
         </div>
       </div>
 
-      <div className="collapse-content lg:hidden z-1">
+      <div className="collapse-content lg:hidden z-1 pb-4">
         <ul className="menu">
           {links.map((link, index) => (
             <li key={index}>
-              <a href={link.href}>{link.name}</a>
+              <Link to={link.href}>{link.name}</Link>
             </li>
           ))}
         </ul>
