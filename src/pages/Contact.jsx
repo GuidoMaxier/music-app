@@ -171,29 +171,29 @@ export default function Contact() {
 
           {/* Tarjeta del Mapa embebido */}
           <div className="card bg-base-200/70 backdrop-blur-md border border-base-300 rounded-3xl p-4 sm:p-5 shadow-2xl flex-1 flex flex-col justify-between min-h-72">
-            <div className="flex items-center justify-between pb-3 text-xs opacity-75">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 text-xs opacity-80 gap-1">
               <span className="flex items-center gap-1.5 font-semibold text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                Estudios Music App
+                Barrio Castañares, Grupo 234 Block G
               </span>
-              <span>Buenos Aires, Argentina</span>
+              <span className="font-mono text-white/70">Salta Capital, Argentina</span>
             </div>
 
-            {/* Iframe del mapa embebido */}
+            {/* Iframe del mapa embebido centrado en Barrio Castañares, Salta */}
             <div className="w-full h-56 sm:h-64 lg:h-72 rounded-2xl overflow-hidden border border-base-300 shadow-inner">
               <iframe
-                title="Mapa de Ubicación"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105073.44367098418!2d-58.531832049999995!3d-34.6156625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88488f63!2sObelisco!5e0!3m2!1ses!2sar!4v1710000000000!5m2!1ses!2sar"
+                title="Ubicación Barrio Castañares Salta"
+                src="https://maps.google.com/maps?q=Barrio+Casta%C3%B1ares,+Salta,+Argentina&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="grayscale contrast-125 opacity-90 hover:grayscale-0 transition-all duration-500"
+                className="contrast-125 opacity-90 hover:opacity-100 transition-all duration-500"
               ></iframe>
             </div>
           </div>
