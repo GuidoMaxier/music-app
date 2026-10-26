@@ -21,8 +21,23 @@ export default function HeroBackground({ highResCover }) {
         />
       </div>
 
-      {/* 3. Viñeta oscura suave para contraste de textos */}
-      <div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-neutral-950/30 to-neutral-950/60 pointer-events-none" />
+      {/* 3. Luces ambientales suaves (orbs) para dar profundidad y volumen moderno */}
+      <div className="absolute top-1/4 left-1/5 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/15 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
+
+      {/* 4. Trama sutil de cuadrícula / puntos futuristas para textura visual */}
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage:
+            'radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }}
+      />
+
+      {/* 5. Doble viñeta (radial cinematográfica + lineal) para legibilidad perfecta */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.7)_80%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-t from-base-300/90 via-base-100/40 to-base-300/80 pointer-events-none" />
     </>
   )
 }
