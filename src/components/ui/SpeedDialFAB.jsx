@@ -45,12 +45,7 @@ const THEMES = [
     letter: 'S',
     btnClass: 'bg-[#2d1b4e] text-[#f43f5e] hover:bg-[#3b2366] font-bold',
   },
-  {
-    name: 'cyberpunk',
-    label: 'Cyberpunk',
-    letter: 'C',
-    btnClass: 'bg-[#ffee00] text-black hover:bg-[#ffe600] font-black',
-  },
+
   {
     name: 'luxury',
     label: 'Luxury',
@@ -70,10 +65,28 @@ const THEMES = [
     btnClass: 'bg-[#005f73] text-[#94d2bd] hover:bg-[#0a9396] font-bold',
   },
   {
-    name: 'retro',
-    label: 'Retro',
-    letter: 'R',
-    btnClass: 'bg-[#ece3ca] text-[#7d5e3f] hover:bg-[#dfd5b8] font-bold',
+    name: 'dim',
+    label: 'Dim',
+    letter: 'd',
+    btnClass: 'bg-[#2a303c] text-[#9ca3af] hover:bg-[#343b49] font-bold',
+  },
+  {
+    name: 'valentine',
+    label: 'Valentine',
+    letter: 'V',
+    btnClass: 'bg-[#e96d7b] text-white hover:bg-[#d85c6a] font-bold',
+  },
+  {
+    name: 'halloween',
+    label: 'Halloween',
+    letter: 'H',
+    btnClass: 'bg-[#212121] text-[#f28c18] border border-[#f28c18]/40 hover:bg-neutral-900 font-extrabold',
+  },
+  {
+    name: 'cupcake',
+    label: 'Cupcake',
+    letter: 'c',
+    btnClass: 'bg-[#faf7f5] text-[#65c3c8] border border-[#65c3c8]/40 hover:bg-[#efeae6] font-extrabold',
   },
 ]
 
