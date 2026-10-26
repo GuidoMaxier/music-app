@@ -75,75 +75,75 @@ export default function Contact() {
                 )}
 
                 {/* Nombre */}
-                <div>
-                  <label className="label text-xs font-semibold uppercase opacity-75">
-                    Nombre
-                  </label>
+                <fieldset className="fieldset py-0">
+                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75">
+                    ¿Cuál es tu nombre?
+                  </legend>
                   <input
                     type="text"
                     name="user_name"
                     required
                     placeholder="Tu nombre completo"
-                    className="input input-bordered w-full rounded-xl text-sm focus:input-primary"
+                    className="input input-sm input-ghost w-full rounded-lg focus:input-primary bg-base-300/40"
                   />
-                </div>
+                </fieldset>
 
                 {/* Email */}
-                <div>
-                  <label className="label text-xs font-semibold uppercase opacity-75">
-                    Email
-                  </label>
+                <fieldset className="fieldset py-0">
+                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75">
+                    Correo electrónico
+                  </legend>
                   <input
                     type="email"
                     name="user_email"
                     required
                     placeholder="correo@ejemplo.com"
-                    className="input input-bordered w-full rounded-xl text-sm focus:input-primary"
+                    className="input input-sm input-ghost w-full rounded-lg focus:input-primary bg-base-300/40"
                   />
-                </div>
+                </fieldset>
 
                 {/* Asunto */}
-                <div>
-                  <label className="label text-xs font-semibold uppercase opacity-75">
+                <fieldset className="fieldset py-0">
+                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75">
                     Asunto
-                  </label>
+                  </legend>
                   <input
                     type="text"
                     name="subject"
                     required
-                    placeholder="Motivo del mensaje"
-                    className="input input-bordered w-full rounded-xl text-sm focus:input-primary"
+                    placeholder="Motivo de tu mensaje"
+                    className="input input-sm input-ghost w-full rounded-lg focus:input-primary bg-base-300/40"
                   />
-                </div>
+                </fieldset>
 
                 {/* Mensaje */}
-                <div>
-                  <label className="label text-xs font-semibold uppercase opacity-75">
+                <fieldset className="fieldset py-0">
+                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75">
                     Mensaje
-                  </label>
+                  </legend>
                   <textarea
                     name="message"
                     required
                     rows={3}
                     placeholder="Escribe tu consulta o sugerencia..."
-                    className="textarea textarea-bordered w-full rounded-xl text-sm focus:textarea-primary resize-none"
+                    className="textarea textarea-sm textarea-ghost w-full rounded-lg focus:textarea-primary bg-base-300/40 resize-none"
                   ></textarea>
-                </div>
+                </fieldset>
 
                 {/* Botón de Envío */}
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn btn-primary w-full rounded-xl mt-3 font-bold shadow-lg shadow-primary/25 hover:scale-[1.01] transition-transform"
+                  className="btn btn-sm btn-primary w-full rounded-lg mt-2 font-bold shadow-md shadow-primary/25 hover:scale-[1.01] transition-transform"
                 >
                   {loading ? (
                     <>
-                      <span className="loading loading-spinner loading-sm"></span>
+                      <span className="loading loading-spinner loading-xs"></span>
                       Enviando...
                     </>
                   ) : (
                     <>
-                      <svg xmlns="http://www.w3.org/2000/svg" className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                       </svg>
                       Enviar Mensaje
