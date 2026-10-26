@@ -51,7 +51,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="hero min-h-[calc(100vh-4rem)] pt-20 pb-12 px-4 md:px-8">
+    <div className="hero min-h-[calc(100vh-4rem)] pt-20 lg:mt-10 pb-12 px-4 md:px-8 ">
       <div className="hero-content flex-col lg:flex-row gap-8 lg:gap-12 max-w-6xl w-full items-stretch">
         
         {/* Lado A: Tarjeta con Formulario (DaisyUI Card + Card-body + Fieldset) */}
@@ -76,8 +76,8 @@ export default function Contact() {
 
                 {/* Nombre */}
                 <fieldset className="fieldset py-0">
-                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75">
-                    ¿Cuál es tu nombre?
+                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75 mb-1">
+                    Nombre
                   </legend>
                   <input
                     type="text"
@@ -90,7 +90,7 @@ export default function Contact() {
 
                 {/* Email */}
                 <fieldset className="fieldset py-0">
-                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75">
+                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75 mb-1">
                     Correo electrónico
                   </legend>
                   <input
@@ -104,7 +104,7 @@ export default function Contact() {
 
                 {/* Asunto */}
                 <fieldset className="fieldset py-0">
-                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75">
+                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75 mb-1">
                     Asunto
                   </legend>
                   <input
@@ -118,7 +118,7 @@ export default function Contact() {
 
                 {/* Mensaje */}
                 <fieldset className="fieldset py-0">
-                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75">
+                  <legend className="fieldset-legend text-xs font-semibold uppercase opacity-75 mb-1">
                     Mensaje
                   </legend>
                   <textarea
@@ -158,9 +158,6 @@ export default function Contact() {
         {/* Lado B: Encabezado descriptivo + Mapa Embebido */}
         <div className="flex-1 flex flex-col justify-between space-y-6 text-center lg:text-left">
           <div className="space-y-3">
-            <span className="badge badge-primary badge-sm font-semibold tracking-wider uppercase">
-              Ponte en contacto
-            </span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
               ¿Hablamos de música?
             </h1>
@@ -179,7 +176,7 @@ export default function Contact() {
                 </svg>
                 Barrio Castañares, Grupo 234 Block G
               </span>
-              <span className="font-mono text-white/70">Salta Capital, Argentina</span>
+              <span className="font-mono">Salta Capital, Argentina</span>
             </div>
 
             {/* Iframe del mapa embebido centrado en Barrio Castañares, Salta */}
