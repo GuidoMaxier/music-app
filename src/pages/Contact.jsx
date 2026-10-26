@@ -51,10 +51,12 @@ export default function Contact() {
     }
   }
 
+  const contactCover = `${(import.meta.env.BASE_URL || '/').replace(/\/$/, '')}/Fondo-03.png`
+
   return (
-    <div className="hero relative min-h-[calc(100vh-4rem)] pt-10 lg:mt-10 pb-12 px-4 md:px-8 overflow-hidden">
-      {/* Reutilización del fondo ambiental del Hero */}
-      <HeroBackground />
+    <div className="hero relative min-h-[calc(100vh-6rem)] pt-15 lg:mt-10 pb-5 px-4 md:px-8 overflow-hidden">
+      {/* Reutilización del fondo ambiental del Hero con Fondo-03.png */}
+      <HeroBackground highResCover={contactCover} />
 
       <div className="hero-content flex-col lg:flex-row gap-8 lg:gap-12 max-w-6xl w-full items-stretch relative z-10">
         
