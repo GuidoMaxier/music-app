@@ -4,16 +4,16 @@ import HeroGenreSelector from './HeroGenreSelector'
 import HeroFeaturedTrack from './HeroFeaturedTrack'
 import HeroTrackList from './HeroTrackList'
 
-export default function HeroTopSongs() {
+export default function HeroTopSongs({ limit = 5 }) {
   const [genero, setGenero] = useState('rock')
   const [tracks, setTracks] = useState([])
   const [loading, setLoading] = useState(true)
   const [currentPlayingId, setCurrentPlayingId] = useState(null)
   const [activeTrack, setActiveTrack] = useState(null)
+  const [volume, setVolume] = useState(0.8)
 
   useEffect(() => {
     let ignore = false
-    const limit = 5
     const controller = new AbortController()
 
     async function loadGenreTracks() {
@@ -44,7 +44,14 @@ export default function HeroTopSongs() {
       ignore = true
       controller.abort()
     }
-  }, [genero])
+  }, [genero, limit])
+
+  const handleVolumeChange = (newVolume) => {
+    setVolume(newVolume)
+    document.querySelectorAll('audio').forEach((audio) => {
+      audio.volume = newVolume
+    })
+  }
 
   const handleTogglePlay = (track, isEnded = false) => {
     if (isEnded) {
@@ -54,6 +61,8 @@ export default function HeroTopSongs() {
 
     const audioEl = document.getElementById(`hero-audio-${track.trackId}`)
     if (!audioEl) return
+
+    audioEl.volume = volume
 
     document.querySelectorAll('audio').forEach(a => {
       if (a !== audioEl) a.pause()
@@ -103,8 +112,11 @@ export default function HeroTopSongs() {
             <HeroTrackList
               tracks={tracks}
               genero={genero}
+              limit={limit}
               activeTrack={activeTrack}
               currentPlayingId={currentPlayingId}
+              volume={volume}
+              onVolumeChange={handleVolumeChange}
               onSelectTrack={setActiveTrack}
               onTogglePlay={handleTogglePlay}
             />
