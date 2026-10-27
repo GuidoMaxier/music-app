@@ -30,12 +30,12 @@ export default function StackSlider() {
   return (
     <div className="w-full space-y-6 flex flex-col items-center">
       {/* Slider con contenedor redondeado y altura fija en lg */}
-      <div className="relative w-full rounded-3xl bg-neutral-900/70 border border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden min-h-[460px] lg:h-[450px] flex items-center">
+      <div className="relative w-full rounded-3xl bg-neutral-900/70 border border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden min-h-115 lg:h-112.5 flex items-center">
         
         {/* Pista de deslizamiento horizontal suave */}
         <div
           ref={sliderRef}
-          className="w-full h-full flex overflow-x-hidden scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="w-full h-full flex overflow-x-hidden scroll-smooth scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           {TECH_CREATORS.map((tech) => (
             <StackCard key={tech.id} tech={tech} />
