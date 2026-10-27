@@ -22,7 +22,7 @@ export default function HeroTrackList({
           <span className="text-xs text-white/60 font-mono capitalize">{genero}</span>
         </div>
 
-        <div className="divide-y divide-white/5 space-y-1 min-h-[290px] flex flex-col justify-start">
+        <div className="divide-y divide-white/5 space-y-1 min-h-72.5 flex flex-col justify-start">
           {tracks.map((track, idx) => {
             const isPlaying = currentPlayingId === track.trackId
             const isSelected = activeTrack?.trackId === track.trackId

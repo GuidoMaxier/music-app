@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom"
-import ThemeController from "./ThemeController"
+// import ThemeController from "./ThemeController"
+import ButtonGithub from "./ButtonGithub"
 
 const title = "Music App"
+const githubUrl = "https://github.com/GuidoMaxier/music-app"
 const links = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "Stack", href: "/stack" },
+  // { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -35,8 +38,9 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <div className="navbar-end gap-1">
-          <ThemeController />
+        <div className="navbar-end mr-2">
+          {/* <ThemeController /> */}
+          <ButtonGithub githubUrl={githubUrl} />
         </div>
       </div>
 
