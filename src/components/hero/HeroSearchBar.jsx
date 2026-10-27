@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 const SUGGESTED_ARTISTS = [
+  'Maroon 5',
   'Maria Becerra',
   'Bizarrap',
   'HUNTER/X',

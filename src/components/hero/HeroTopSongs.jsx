@@ -8,7 +8,7 @@ import HeroTrackList from './HeroTrackList'
 const tracksCache = new Map()
 
 export default function HeroTopSongs({ limit = 5 }) {
-  const [searchQuery, setSearchQuery] = useState('Maria Becerra')
+  const [searchQuery, setSearchQuery] = useState('Maroon 5')
   const [tracks, setTracks] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
