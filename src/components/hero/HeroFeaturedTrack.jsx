@@ -33,7 +33,8 @@ export default function HeroFeaturedTrack({
           </>
         ) : (
           <>
-            Por <span className="text-primary font-bold">{track.artistName}</span> •{' '}
+            Por <span className="text-primary font-bold">{track.artistName}</span> 
+            <br></br>
             <span className="italic text-white/70">{track.collectionName}</span>
           </>
         )}

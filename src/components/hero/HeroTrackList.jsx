@@ -1,25 +1,39 @@
+import { useState } from 'react'
 import { formatDuration } from './constants'
 
 export default function HeroTrackList({
   tracks,
-  genero,
+  searchTerm,
   limit = 5,
   activeTrack,
   currentPlayingId,
-  volume = 0.3,
   onVolumeChange,
   onSelectTrack,
   onTogglePlay,
 }) {
+  const [localVolume, setLocalVolume] = useState(0.3)
+
+  const handleVolumeUpdate = (newVolume) => {
+    setLocalVolume(newVolume)
+    if (onVolumeChange) {
+      onVolumeChange(newVolume)
+    }
+  }
+
   return (
     <div className="lg:col-span-5">
       <div className="hover-3d w-full">
         <div className="card relative z-10 pointer-events-auto backdrop-blur-2xl bg-black/45 border border-white/15 rounded-3xl p-5 shadow-2xl space-y-3 text-white">
         <div className="flex items-center justify-between border-b border-white/10 pb-3">
           <h2 className="text-lg font-bold flex items-center gap-2">
-            <span>🔥</span> Top {limit} Canciones
+            <span>🔥</span> Tus {limit} Canciones
           </h2>
-          <span className="text-xs text-white/60 font-mono capitalize">{genero}</span>
+          <span 
+            className="text-xs text-white/60 font-mono capitalize truncate max-w-37.5 text-right"
+            title={`Búsqueda: ${searchTerm}`}
+          >
+            "{searchTerm}"
+          </span>
         </div>
 
         <div className="divide-y divide-white/5 space-y-1 min-h-72.5 flex flex-col justify-start">
@@ -37,13 +51,6 @@ export default function HeroTrackList({
                     : 'hover:bg-white/10'
                 }`}
               >
-                {/* Audio oculto */}
-                <audio
-                  id={`hero-audio-${track.trackId}`}
-                  src={track.previewUrl}
-                  onEnded={() => onTogglePlay(track, true)}
-                />
-
                 <div className="flex items-center gap-3 overflow-hidden pr-2">
                   <span className="text-xs font-mono w-5 text-white/50 group-hover:text-primary shrink-0">
                     0{idx + 1}
@@ -126,19 +133,19 @@ export default function HeroTrackList({
             </span>
 
             {/* 2. Control de volumen minimalista DaisyUI Range */}
-            <div className="flex items-center gap-1.5 flex-1 max-w-44 px-1 group" title={`Volumen: ${Math.round(volume * 100)}%`}>
+            <div className="flex items-center gap-1.5 flex-1 max-w-44 px-1 group" title={`Volumen: ${Math.round(localVolume * 100)}%`}>
               <button
                 type="button"
-                onClick={() => onVolumeChange(volume > 0 ? 0 : 0.3)}
+                onClick={() => handleVolumeUpdate(localVolume > 0 ? 0 : 0.3)}
                 className="btn btn-ghost btn-circle btn-xs text-white/60 hover:text-primary transition-colors shrink-0 p-0 h-6 w-6 min-h-0"
-                aria-label={volume === 0 ? "Activar sonido" : "Silenciar"}
+                aria-label={localVolume === 0 ? "Activar sonido" : "Silenciar"}
               >
-                {volume === 0 ? (
+                {localVolume === 0 ? (
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-error/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
                   </svg>
-                ) : volume < 0.5 ? (
+                ) : localVolume < 0.5 ? (
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                   </svg>
@@ -154,8 +161,8 @@ export default function HeroTrackList({
                 min="0"
                 max="1"
                 step="0.01"
-                value={volume}
-                onChange={(e) => onVolumeChange(parseFloat(e.target.value))}
+                value={localVolume}
+                onChange={(e) => handleVolumeUpdate(parseFloat(e.target.value))}
                 className="range range-xs range-primary flex-1 opacity-75 hover:opacity-100 transition-opacity cursor-pointer"
                 aria-label="Control de volumen"
               />
