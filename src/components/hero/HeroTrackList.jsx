@@ -22,7 +22,7 @@ export default function HeroTrackList({
           <span className="text-xs text-white/60 font-mono capitalize">{genero}</span>
         </div>
 
-        <div className="divide-y divide-white/5 space-y-1">
+        <div className="divide-y divide-white/5 space-y-1 min-h-[290px] flex flex-col justify-start">
           {tracks.map((track, idx) => {
             const isPlaying = currentPlayingId === track.trackId
             const isSelected = activeTrack?.trackId === track.trackId
@@ -82,6 +82,36 @@ export default function HeroTrackList({
                       </svg>
                     )}
                   </button>
+                </div>
+              </div>
+            )
+          })}
+
+          {/* Slots vacíos si vienen menos canciones que el límite */}
+          {Array.from({ length: Math.max(0, limit - tracks.length) }).map((_, i) => {
+            const slotNumber = tracks.length + i + 1
+            return (
+              <div
+                key={`empty-slot-${i}`}
+                className="flex items-center justify-between py-2.5 px-3 rounded-xl border border-dashed border-white/10 text-white/30 select-none"
+              >
+                <div className="flex items-center gap-3 overflow-hidden pr-2">
+                  <span className="text-xs font-mono w-5 text-white/30 shrink-0">
+                    0{slotNumber}
+                  </span>
+                  <div className="truncate">
+                    <p className="text-sm font-medium text-white/30 truncate">Pista no disponible</p>
+                    <p className="text-xs text-white/20 truncate">Sin información de artista</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 shrink-0">
+                  <span className="text-xs font-mono text-white/30">--:--</span>
+                  <div className="btn btn-circle btn-xs btn-ghost text-white/20 pointer-events-none opacity-40">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             )
