@@ -5,10 +5,9 @@ import ButtonGithub from "./ButtonGithub"
 const title = "Music App"
 const githubUrl = "https://github.com/GuidoMaxier/music-app"
 const links = [
-  { name: "Home", href: "/" },
+  { name: "Inicio", href: "/" },
   { name: "Stack", href: "/stack" },
-  // { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contacto", href: "/contacto" },
 ]
 
 export default function Navbar() {

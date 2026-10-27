@@ -21,7 +21,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
         {/* Copyright */}
         <p className="text-xs text-white/50 font-mono text-center sm:text-left">
-          Copyright © 2026 All right reserved by Hernán Casasola
+          Copyright © 2026 All rights reserved by Hernán Casasola
         </p>
 
         {/* Iconos de redes sociales */}
