@@ -1,5 +1,5 @@
 export default function HeroBackground({ highResCover }) {
-  const bgImage = highResCover || `${import.meta.env.BASE_URL}Fondo-01.png`
+  const bgImage = highResCover || `${import.meta.env.BASE_URL}Fondo-02.png`
 
   return (
     <>

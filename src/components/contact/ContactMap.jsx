@@ -9,11 +9,11 @@ export default function ContactMap() {
           </svg>
           Barrio Castañares, Grupo 234 Block G
         </span>
-        <span className="font-mono">Salta Capital, Argentina</span>
+        <span className="font-mono lg:mr-5">Salta Capital, Argentina</span>
       </div>
 
       {/* Iframe del mapa embebido centrado en Barrio Castañares, Salta */}
-      <div className="w-full h-56 sm:h-64 lg:h-72 rounded-2xl overflow-hidden border border-base-300 shadow-inner">
+      <div className="w-full h-56 sm:h-64 lg:h-full rounded-2xl overflow-hidden border border-base-300 shadow-inner">
         <iframe
           title="Ubicación Barrio Castañares Salta"
           src="https://maps.google.com/maps?q=Barrio+Casta%C3%B1ares,+Salta,+Argentina&t=&z=15&ie=UTF8&iwloc=&output=embed"
