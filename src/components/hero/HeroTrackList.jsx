@@ -52,9 +52,21 @@ export default function HeroTrackList({
                 }`}
               >
                 <div className="flex items-center gap-3 overflow-hidden pr-2">
-                  <span className="text-xs font-mono w-5 text-white/50 group-hover:text-primary shrink-0">
+                  <span className="text-xl font-mono w-5 text-white/50 group-hover:text-primary shrink-0">
                     0{idx + 1}
                   </span>
+                  {track.artworkUrl60 || track.artworkUrl100 ? (
+                    <img
+                      src={track.artworkUrl60 || track.artworkUrl100}
+                      alt={track.trackName}
+                      className="size-6 rounded-sm object-cover shrink-0 border border-white/10 shadow-sm"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="size-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0 text-white/40 text-xs">
+                      🎵
+                    </div>
+                  )}
                   <div className="truncate">
                     <p className="text-sm font-medium truncate text-white">{track.trackName}</p>
                     <p className="text-xs text-white/60 truncate">{track.artistName}</p>
@@ -94,7 +106,6 @@ export default function HeroTrackList({
             )
           })}
 
-          {/* Slots vacíos si vienen menos canciones que el límite */}
           {Array.from({ length: Math.max(0, limit - tracks.length) }).map((_, i) => {
             const slotNumber = tracks.length + i + 1
             return (
@@ -103,9 +114,12 @@ export default function HeroTrackList({
                 className="flex items-center justify-between py-2.5 px-3 rounded-xl border border-dashed border-white/10 text-white/30 select-none"
               >
                 <div className="flex items-center gap-3 overflow-hidden pr-2">
-                  <span className="text-xs font-mono w-5 text-white/30 shrink-0">
+                  <span className="text-xl font-mono w-5 text-white/30 shrink-0">
                     0{slotNumber}
                   </span>
+                  <div className="size-9 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center shrink-0 text-white/20 text-xs">
+                    🎵
+                  </div>
                   <div className="truncate">
                     <p className="text-sm font-medium text-white/30 truncate">Pista no disponible</p>
                     <p className="text-xs text-white/20 truncate">Sin información de artista</p>
