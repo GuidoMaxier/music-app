@@ -54,7 +54,7 @@ export default function HeroSearchBar({ currentQuery, onSearch, isLoading = fals
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder={`Buscar canción, artista o tema (ej: "${currentQuery}")...`}
+            placeholder={`Buscar canción, artista, etc. (ej: "${currentQuery}")...`}
             className="w-full pl-10 pr-4 py-2 text-sm text-white placeholder-white/40 bg-neutral-900/70 border border-white/10 rounded-full focus:outline-none focus:border-primary/60 focus:ring-2 focus:ring-primary/20 backdrop-blur-md transition-all shadow-inner"
           />
         </div>
